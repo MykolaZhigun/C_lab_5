@@ -1,32 +1,20 @@
-﻿#include <iostream>
+#include <iostream>
 #include <cstdlib>
-#include <ctime>
 
 int main() {
-    // Ініціалізуємо генератор випадкових чисел на основі поточного часу
-    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+    int count = 0; // Змінна для збереження кількості чисел більше трьох
 
-    // Генеруємо та виводимо випадкове число в діапазоні від 0 до 9
-    int i = 0;
-    int number_high_than_3 = 0;
+    // Генеруємо 5 випадкових чисел від 0 до 9 і перевіряємо, чи вони більше трьох
+    for (int i = 0; i < 5; i++) {
+        int randomNumber = std::rand() % 10; // Генеруємо випадкове число від 0 до 9
+        std::cout << "Random number " << i + 1 << ": " << randomNumber << std::endl;
 
-    while(i <= 3){
-        int randomNum = std::rand() % 10;
-        if (randomNum > 3) {
-            std::cout << "Number higher than 3" << std::endl;
-            std::cout << "Number: " << randomNum << std::endl << std::endl;
-            number_high_than_3++;
+        if (randomNumber > 3) {
+            count++;
         }
-        else if (randomNum < 3)
-        {
-            std::cout << "Number less than 3" << std::endl;
-            std::cout << "Number: " << randomNum << std::endl << std::endl;
-        }
-        
-        i++;
     }
 
-    std::cout << "Number higher than 3: " << number_high_than_3;
+    std::cout << "\nNumber highrt than 3: " << count << std::endl;
 
     return 0;
 }
